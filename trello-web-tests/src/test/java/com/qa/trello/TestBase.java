@@ -15,13 +15,23 @@ public class TestBase {
 
 
   @BeforeMethod
-  public void setUp() {
+  public void setUp() throws InterruptedException {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     wd.manage().window().maximize();
     wd.navigate().to("https://trello.com/");
-    login("rochman.elena@gmail.com", "12345.com");
+    loginAtlasiianAcc("rochman.elena@gmail.com", "12345.com");
 
+  }
+
+  private void loginAtlasiianAcc(String email, String pwd) throws InterruptedException {
+    initLogin();
+    fillLoginFormAtlassianAcc(email, pwd);
+    confirmLoginAtlassian();
+  }
+
+  public void confirmLoginAtlassian() {
+    click(By.cssSelector("#login-submit"));
   }
 
   @AfterMethod
@@ -73,10 +83,12 @@ public class TestBase {
   }
 
 
-  public void fillLoginFormAtlassianAcc(String userEmail, String password) {
+  public void fillLoginFormAtlassianAcc(String userEmail, String password) throws InterruptedException {
     type(By.name("user"), userEmail);
     click(By.cssSelector("#login.button-green"));
+    Thread.sleep(5000);
     type(By.cssSelector("input#password"), password);
+
   }
 
   protected void initBoardCreation() {
@@ -90,6 +102,8 @@ public class TestBase {
 
   protected void fillBoardForm(String nameOfBoard, String colorOfBoard) {
     type(By.cssSelector("[data-test-id='create-board-title-input']"), nameOfBoard);
+    click(By.cssSelector("button.W6rMLOx8U0MrPx"));
+    click(By.xpath("//li[1]/button[@class='_2jR0BZMM5cBReR']"));
     click(By.cssSelector(colorOfBoard));
   }
 
@@ -97,5 +111,42 @@ public class TestBase {
     initLogin();
     fillLoginForm(email, password);
     confirmLogin();
+  }
+
+  public void permanentlyDeleteBoard() {
+    click(By.cssSelector(".js-delete"));
+    confirm();
+  }
+
+  protected void initBoardDeletionInMoreMenu() {
+    clickCloseBoardFromMoreMenu();
+    confirm();
+  }
+
+  public void confirm() {
+    click(By.cssSelector(".js-confirm"));
+  }
+
+  public void clickCloseBoardFromMoreMenu() {
+    click(By.cssSelector(".js-close-board"));
+  }
+
+  public void clickMoreButton() {
+    click(By.cssSelector(".js-open-more"));
+  }
+
+  public void openFirstPersonalBoard() {
+    click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li"));
+  }
+
+  public int getBoardsCount() {
+    return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
+  }
+
+  public void createBoard(){
+    initBoardCreation();
+    fillBoardForm("Test", "[title='blue']");
+    confirmBoardCreation();
+    returnToHomePage();
   }
 }
