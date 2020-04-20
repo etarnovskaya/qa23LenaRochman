@@ -12,8 +12,8 @@ public class BoardCreationTestsMy extends TestBase {
 
     //fillBoardForm
 
-    click(By.cssSelector(".W6rMLOx8U0MrPx"));
-    click(By.xpath("//ul//li[1])"));
+    app.click(By.cssSelector(".W6rMLOx8U0MrPx"));
+    app.click(By.xpath("//ul//li[1])"));
 
     //confirmBoardCreation
     //returnToHomePage

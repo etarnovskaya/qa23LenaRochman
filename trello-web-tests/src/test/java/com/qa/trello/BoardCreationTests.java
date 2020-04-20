@@ -8,12 +8,12 @@ public class BoardCreationTests extends TestBase {
 
   @Test
   public void testBoardCreation() {
-    int before = getBoardsCount();
-    initBoardCreation();
-    fillBoardForm("Test", "[title='blue']");
-    confirmBoardCreation();
-    returnToHomePage();
-    int after = getBoardsCount();
+    int before = app.getBoardsCount();
+    app.initBoardCreation();
+    app.fillBoardForm("Test", "[title='blue']");
+    app.confirmBoardCreation();
+    app.returnToHomePage();
+    int after = app.getBoardsCount();
 
     Assert.assertEquals(after, before + 1);
 

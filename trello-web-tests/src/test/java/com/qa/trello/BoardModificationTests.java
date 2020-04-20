@@ -1,6 +1,5 @@
 package com.qa.trello;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -10,15 +9,15 @@ public class BoardModificationTests extends  TestBase {
 //    if(!isOnBoardsPage()){
 //////      click(By.cssSelector("[href$=boards]"));
 //////    }
-    if(getBoardsCount()==0){
-      createBoard();
+    if(app.getBoardsCount()==0){
+      app.createBoard();
     }
   }
 
   @Test
   public void testBoardNameModification(){
-    openFirstPersonalBoard();
-    changeName();
-    returnToHomePage();
+    app.openFirstPersonalBoard();
+    app.changeName();
+    app.returnToHomePage();
   }
 }
