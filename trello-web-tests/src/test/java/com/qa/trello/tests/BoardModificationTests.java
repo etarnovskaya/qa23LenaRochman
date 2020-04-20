@@ -1,4 +1,4 @@
-package com.qa.trello;
+package com.qa.trello.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,17 +7,20 @@ public class BoardModificationTests extends  TestBase {
   @BeforeMethod
   public void ensurePreconditions(){
 //    if(!isOnBoardsPage()){
-//////      click(By.cssSelector("[href$=boards]"));
+    app.getBoard().openBoardsPage();
 //////    }
-    if(app.getBoardsCount()==0){
-      app.createBoard();
+    if(app.getBoard().getBoardsCount()==0){
+      app.getBoard().createBoard();
     }
   }
 
+
+
   @Test
   public void testBoardNameModification(){
-    app.openFirstPersonalBoard();
-    app.changeName();
-    app.returnToHomePage();
+    app.getBoard().openFirstPersonalBoard();
+    app.getBoard().changeName();
+    app.getBoard().returnToHomePage();
+
   }
 }
