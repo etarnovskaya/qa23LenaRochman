@@ -39,15 +39,15 @@ public class TestBase {
     wd.quit();
   }
 
-  public void fillForm(String nameOfTeam, By locatorTeamType) {
-    type(By.cssSelector("[class='_1CLyNodCAa-vQi']"), nameOfTeam);
+  public void fillTeamForm(String nameOfTeam) {
+    type(By.cssSelector("[data-test-id=header-create-team-name-input]"), nameOfTeam);
     click(By.id("teamTypeSelect"));
-    click(locatorTeamType);
+    click(By.cssSelector("[data-test-id^=header-create-team-type] li"));
   }
 
   public void returnToHomePage() {
-    click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
-    click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
+    click(By.cssSelector("[name='house']"));
+   // click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
   }
 
   public void confirmTeamCreation() {
@@ -148,5 +148,15 @@ public class TestBase {
     fillBoardForm("Test", "[title='blue']");
     confirmBoardCreation();
     returnToHomePage();
+  }
+
+  public void inviteTeamLater() {
+    if (isElementPresent(By.cssSelector("[data-test-id=show-later-button]"))) {
+      click(By.cssSelector("[data-test-id=show-later-button]"));
+    }
+  }
+
+  public  boolean isElementPresent(By locator){
+    return wd.findElements(locator).size()>0;
   }
 }

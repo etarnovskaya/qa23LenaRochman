@@ -1,6 +1,7 @@
 package com.qa.trello;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,6 +29,16 @@ public class BoardDeletionTests extends  TestBase {
 
   }
 
-
-
+  @Test
+  public void testBoardName(){
+    openFirstPersonalBoard();
+    changeName();
 }
+
+  public void changeName() {
+    //click on name
+    wd.findElement(By.cssSelector(".js-rename-board")).click();
+    //type text and enter
+    wd.findElement(By.cssSelector("input.js-board-name-input")).sendKeys("ggg"+ Keys.ENTER);
+  }
+  }
