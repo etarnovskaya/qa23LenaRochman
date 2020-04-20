@@ -1,6 +1,7 @@
 package com.qa.trello;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,12 +17,16 @@ public class TestBase {
 
   @BeforeMethod
   public void setUp() throws InterruptedException {
+    init();
+
+  }
+
+  private void init() throws InterruptedException {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     wd.manage().window().maximize();
     wd.navigate().to("https://trello.com/");
     loginAtlasiianAcc("rochman.elena@gmail.com", "12345.com");
-
   }
 
   private void loginAtlasiianAcc(String email, String pwd) throws InterruptedException {
@@ -36,6 +41,10 @@ public class TestBase {
 
   @AfterMethod
   public void tearDown() {
+    stop();
+  }
+
+  private void stop() {
     wd.quit();
   }
 
@@ -47,7 +56,7 @@ public class TestBase {
 
   public void returnToHomePage() {
     click(By.cssSelector("[name='house']"));
-   // click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
+    // click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
   }
 
   public void confirmTeamCreation() {
@@ -140,14 +149,19 @@ public class TestBase {
   }
 
   public int getBoardsCount() {
-    return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size()-1;
+    return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size() - 1;
   }
 
-  public void createBoard(){
+  public void createBoard() {
     initBoardCreation();
     fillBoardForm("Test", "[title='blue']");
     confirmBoardCreation();
     returnToHomePage();
+  }
+
+  public boolean isOnBoardsPage() {
+    String url = wd.getCurrentUrl();
+    return url.contains("boards");
   }
 
   public void inviteTeamLater() {
@@ -156,7 +170,18 @@ public class TestBase {
     }
   }
 
-  public  boolean isElementPresent(By locator){
-    return wd.findElements(locator).size()>0;
+  public boolean isElementPresent(By locator) {
+    return wd.findElements(locator).size() > 0;
+  }
+
+  public void changeName() {
+
+//    //click on name
+    wd.findElement(By.cssSelector(".js-rename-board")).click();
+//    //type text and enter
+    wd.findElement(By.cssSelector("input.js-board-name-input")).sendKeys("ggg" + Keys.ENTER);
+    //type(By.cssSelector(".js-rename-board"), "ggg"+ Keys.ENTER);
+
+
   }
 }
