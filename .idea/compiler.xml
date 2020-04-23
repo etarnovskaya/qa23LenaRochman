@@ -6,6 +6,8 @@
       <module name="first-selenium-project.test" target="1.8" />
       <module name="Lena.first-selenium-project.main" target="1.8" />
       <module name="Lena.first-selenium-project.test" target="1.8" />
+      <module name="Lena.trello-web-tests.main" target="1.8" />
+      <module name="Lena.trello-web-tests.test" target="1.8" />
       <module name="trello-web-tests.main" target="1.8" />
       <module name="trello-web-tests.test" target="1.8" />
     </bytecodeTargetLevel>

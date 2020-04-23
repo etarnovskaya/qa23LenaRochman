@@ -2,11 +2,12 @@ package com.qa.trello.framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperBase {
   WebDriver wd;
-  WebDriverWait wait; //класс ждать, если нужно подождать подгрузку на странице принудительно
+  WebDriverWait wait;
 
   public HelperBase(WebDriver wd) {
     this.wd = wd;
@@ -21,8 +22,13 @@ public class HelperBase {
     wd.findElement(locator).click();
   }
 
+  public void waitForElementLocatedAndClick(By locator, int timeOut) {
+    new WebDriverWait(wd, timeOut)
+            .until(ExpectedConditions.presenceOfElementLocated(locator)).click();
+  }
+
   public void type(By locator, String text) {
-    click(locator);
+    waitForElementLocatedAndClick(locator, 20);
     wd.findElement(locator).clear();
     wd.findElement(locator).sendKeys(text);
   }
