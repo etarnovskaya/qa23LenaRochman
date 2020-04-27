@@ -9,8 +9,9 @@ public class TeamCreationTests extends TestBase {
   public void testTeamCreation()  {
     app.getTeam().initTeamCreation();
     app.getTeam().fillTeamForm("Team_test");
-    app.getTeam().inviteTeamLater();
     app.getTeam().confirmTeamCreation();
+    app.getTeam().inviteTeamLater();
+
     app.getTeam().returnToHomePage();
 
   }

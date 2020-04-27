@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.qa.trello.tests.TeamModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-24T07:03:41" hostname="Lena-Toshiba" time="0.001">
-  <properties/>
-  <testcase name="TestTeammodification" classname="com.qa.trello.tests.TeamModificationTests" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

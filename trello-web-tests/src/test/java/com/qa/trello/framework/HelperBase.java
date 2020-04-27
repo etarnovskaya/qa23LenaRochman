@@ -14,9 +14,8 @@ public class HelperBase {
   }
 
   public void returnToHomePage() {
-    click(By.cssSelector("[name='house']"));
-    // click(By.cssSelector("[class='_2BQG4yPMt5s_hu _2hgn5meZL7bJdx _1ctYJ9-gOV_hrm _3Xj1tqB73NcWn3']"));
-  }
+      click(By.xpath("//*[@name='house']/.."));
+   }
 
   public void click(By locator) {
     wd.findElement(locator).click();
