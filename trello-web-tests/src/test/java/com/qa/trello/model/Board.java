@@ -31,4 +31,13 @@ public class Board {
   public String getColor() {
     return color;
   }
+
+  @Override
+  public String toString() {
+    return "Board{" +
+            "name='" + name + '\'' +
+            ", team='" + team + '\'' +
+            ", color='" + color + '\'' +
+            '}';
+  }
 }

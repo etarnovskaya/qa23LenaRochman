@@ -27,7 +27,7 @@ public class BoardHelper extends HelperBase {
   public void fillBoardForm(Board board) {
     typeBoardName(board.getName());
     selectTeamFromBoardCreationForm(board.getTeam());
-    click(By.cssSelector("[title='"+board.getColor()+"']"));//board.getColor()));
+   click(By.cssSelector("[title='"+board.getColor()+"']"));//board.getColor()));
   }
 
   private void typeBoardName(String nameOfBoard) {
