@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class BoardDeletionTests extends  TestBase {
   @BeforeMethod
-  public void ensurePreconditions(){
+  public void ensurePreconditions() throws InterruptedException {
     if(!app.getBoard().isOnBoardsPage()){
       app.getBoard().click(By.cssSelector("[href$=boards]"));
     }
@@ -19,7 +19,7 @@ public class BoardDeletionTests extends  TestBase {
 
 
   @Test
-  public void testBoardDeletion(){
+  public void testBoardDeletion() throws InterruptedException {
     int before = app.getBoard().getBoardsCount();
     app.getBoard().openFirstPersonalBoard();
     app.getBoard().clickMoreButton();

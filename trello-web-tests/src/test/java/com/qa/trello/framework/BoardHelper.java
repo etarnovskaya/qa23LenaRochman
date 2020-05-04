@@ -20,24 +20,32 @@ public class BoardHelper extends HelperBase {
     click(By.cssSelector("[data-test-id='header-create-board-button']"));
   }
 
-  public void confirmBoardCreation() {
+  public void confirmBoardCreation() throws InterruptedException {
     click(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"));
+    Thread.sleep(2000);
   }
 
   public void fillBoardForm(Board board) {
     typeBoardName(board.getName());
     selectTeamFromBoardCreationForm(board.getTeam());
-   click(By.cssSelector("[title='"+board.getColor()+"']"));//board.getColor()));
+    selectColor(board.getColor());
+  }
+
+  private void selectColor(String color) {
+   if(color != null){
+     click(By.cssSelector("[title='"+color+"']"));
+   }
   }
 
   private void typeBoardName(String nameOfBoard) {
-
     type(By.cssSelector("[data-test-id='create-board-title-input']"), nameOfBoard);
   }
 
   private void selectTeamFromBoardCreationForm(String team) {
-    click(By.cssSelector("button.W6rMLOx8U0MrPx"));
-    click(By.xpath("//span[contains(text(), '" + team + "')]"));
+    if(team != null){
+      click(By.cssSelector("button.W6rMLOx8U0MrPx"));
+      click(By.xpath("//span[contains(text(), '" + team + "')]"));
+    }
   }
 
   public void permanentlyDeleteBoard() {
@@ -71,7 +79,7 @@ public class BoardHelper extends HelperBase {
     return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li")).size() - 1;
   }
 
-  public void createBoard() {
+  public void createBoard() throws InterruptedException {
     initBoardCreation();
     fillBoardForm(new Board()
             .withName("Test")

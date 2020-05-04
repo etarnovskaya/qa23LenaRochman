@@ -6,6 +6,7 @@
             <class name="com.qa.trello.tests.BoardCreationTests" />
             <class name="com.qa.trello.tests.BoardModificationTests" />
             <class name="com.qa.trello.tests.BoardDeletionTests" />
+            <class name="com.qa.trello.tests.BoardCreationTestsMy" />
         </classes>
     </test>
 </suite>

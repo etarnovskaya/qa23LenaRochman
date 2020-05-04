@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TeamCreationTests extends TestBase {
 
   @Test
-  public void testTeamCreation()  {
+  public void testTeamCreation() throws InterruptedException {
     app.getTeam().initTeamCreation();
     app.getTeam().fillTeamForm("Team_test");
     app.getTeam().confirmTeamCreation();

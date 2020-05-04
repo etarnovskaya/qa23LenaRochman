@@ -28,8 +28,8 @@ public class ApplicationManager{
       wd = new EdgeDriver();
     }
 
-    wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-    wd.manage().window().maximize();
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    //wd.manage().window().maximize();
     wd.navigate().to("https://trello.com/");
 
     session = new SessionHelper(wd);
