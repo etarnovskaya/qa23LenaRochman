@@ -13,6 +13,7 @@ public class ApplicationManager{
   BoardHelper board;
   TeamHelper team;
   SessionHelper session;
+  ProfileHelper profile;
   String browser;
 
   public ApplicationManager(String browser) {
@@ -38,6 +39,7 @@ public class ApplicationManager{
 
     board= new BoardHelper(wd);
     team = new TeamHelper(wd);
+    profile = new ProfileHelper(wd);
   }
 
   public void stop() {
@@ -54,5 +56,9 @@ public class ApplicationManager{
 
   public TeamHelper getTeam() {
     return team;
+  }
+
+  public ProfileHelper getProfile() {
+    return profile;
   }
 }
