@@ -1,6 +1,0 @@
-20:33:17.461 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreationOLD with parameters: []
-20:33:34.274 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreationOLD
-20:33:34.279 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardNameModification with parameters: []
-20:33:35.733 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardNameModification
-20:33:35.735 [main] INFO  com.qa.trello.tests.TestBase - Start test testBoardDeletion with parameters: []
-20:33:40.384 [main] INFO  com.qa.trello.tests.TestBase - Stop test testBoardDeletion

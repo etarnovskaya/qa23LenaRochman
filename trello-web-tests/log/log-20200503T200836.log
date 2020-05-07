@@ -1,3 +1,0 @@
-20:08:56.881 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [Board{name='a', team='No team', color='green'}]
-20:09:18.375 [Test worker] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
-20:09:18.379 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [Board{name='Far far away behind the word mountains.', team='No team', color='orange'}]

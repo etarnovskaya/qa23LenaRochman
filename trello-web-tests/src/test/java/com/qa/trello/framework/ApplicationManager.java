@@ -35,7 +35,7 @@ public class ApplicationManager{
 
     session = new SessionHelper(wd);
     session.loginAtlasiianAcc("rochman.elena@gmail.com", "12345.com");
-    Thread.sleep(3000);
+    Thread.sleep(5000);
 
     board= new BoardHelper(wd);
     team = new TeamHelper(wd);

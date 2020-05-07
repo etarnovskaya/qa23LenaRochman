@@ -1,4 +1,0 @@
-22:04:43.885 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [aaaaaaa, No team, blue]
-22:04:48.889 [Test worker] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
-22:04:48.891 [Test worker] INFO  com.qa.trello.tests.TestBase - Start test testBoardCreation with parameters: [1111111, No team, orange]
-22:04:51.346 [Test worker] INFO  com.qa.trello.tests.TestBase - Stop test testBoardCreation
