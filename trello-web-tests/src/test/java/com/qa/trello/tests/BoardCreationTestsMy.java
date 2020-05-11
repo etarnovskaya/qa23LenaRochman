@@ -53,7 +53,7 @@ public class BoardCreationTestsMy extends TestBase {
 //    Assert.assertEquals(after, before+1);
 //  }
 
-  @Test(dataProvider = "validBoards")
+  @Test(enabled = false, dataProvider = "validBoards")
   public void testBoardCreation(Board board) throws InterruptedException {
     int before = app.getBoard().getBoardsCount();
     app.getBoard().initBoardCreation();
