@@ -6,6 +6,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager{
@@ -15,12 +20,13 @@ public class ApplicationManager{
   SessionHelper session;
   ProfileHelper profile;
   String browser;
+  Properties properties;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
   }
 
-  public void init() throws InterruptedException {
+  public void init() throws InterruptedException, IOException {
     if(browser.equals(BrowserType.CHROME)){
       wd = new ChromeDriver();
     }if(browser.equals(BrowserType.FIREFOX)){
@@ -31,10 +37,21 @@ public class ApplicationManager{
 
     wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     //wd.manage().window().maximize();
-    wd.navigate().to("https://trello.com/");
+
+    properties = new Properties();
+
+    String target = System.getProperty("target", "local");
+    properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+
+
+
+    wd.navigate().to(properties.getProperty("web.baseURL"));
 
     session = new SessionHelper(wd);
-    session.loginAtlasiianAcc("rochman.elena@gmail.com", "12345.com");
+
+    session.loginAtlasiianAcc(
+            properties.getProperty("web.user"), properties.getProperty("web.pwd"));
     Thread.sleep(5000);
 
     board= new BoardHelper(wd);

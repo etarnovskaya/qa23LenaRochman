@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BoardHelper extends HelperBase {
 
   public BoardHelper(WebDriver wd) {
@@ -107,4 +109,21 @@ public class BoardHelper extends HelperBase {
   public void openBoardsPage() {
     click(By.cssSelector("[href$=boards]"));
   }
+
+
+
+
+
+
+
+//  public void test() {
+//    //go to needed page
+//    List<WebElement> cards = wd.findElements(By.cssSelector("      "));
+//    for (WebElement card : cards) {
+//      WebElement button = wd.findElement(By.cssSelector("      "));
+//      button.click();
+//      wd.navigate().back();
+//
+//    }
+//  }
 }

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.qa.trello.tests.BoardModificationTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-05-11T17:15:33" hostname="Lena-Toshiba" time="0.0">
-  <properties/>
-  <testcase name="testBoardNameModification" classname="com.qa.trello.tests.BoardModificationTests" time="0.0">
-    <skipped/>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
